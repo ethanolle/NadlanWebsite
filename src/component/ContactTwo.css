@@ -1,0 +1,7 @@
+.section_title {
+  position: relative;
+  float: right;
+}
+Form {
+  direction: rtl;
+}
