@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Parallax } from "react-parallax";
 import Reveal from "react-reveal/Reveal/";
+import ContactTwo from "../ContactTwo";
 import "./TypeBanner.css";
 
 class TypeBanner extends Component {
@@ -10,7 +11,7 @@ class TypeBanner extends Component {
     return (
       <section id='home'>
         <Parallax
-          bgImage={require("../../image/intro-bg.jpg")}
+          bgImage={require("../../image/Binian1.webp")}
           strength={0}
           className='banner_area'
         >
@@ -21,7 +22,7 @@ class TypeBanner extends Component {
                 <h5 className='wow fadeInLeft animated '>{jhonData.ptext}</h5>
               </Reveal>
               <Reveal effect='fadeInUp' duration={2000}>
-                {" "}
+                {/* <ContactTwo /> */}
               </Reveal>
             </div>
           </div>

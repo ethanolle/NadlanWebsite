@@ -14,25 +14,11 @@ class Navbar extends Component {
               <img src={require("../../image/" + mainlogo)} alt='' />
               <img src={require("../../image/" + stickylogo)} alt='' />
             </a>
-            <button
-              className='navbar-toggler'
-              type='button'
-              data-toggle='collapse'
-              data-target='#navbarSupportedContent'
-              aria-controls='navbarSupportedContent'
-              aria-expanded='false'
-              aria-label='Toggle navigation'
-            >
-              <span className='icon-bar'></span>
-              <span className='icon-bar'></span>
-              <span className='icon-bar'></span>
-            </button>
-            <div
-              className='collapse navbar-collapse offset'
-              id='navbarSupportedContent'
-            ></div>
-
-            <h5 className='header nav-item'>test</h5>
+            <div className='nav navbar-nav m-auto'>
+              <div className='nav-item'>
+                <h1 className='header nav-link  '>מערכת התאמת נכסים לקונים</h1>
+              </div>
+            </div>
           </div>
         </nav>
       </Sticky>
