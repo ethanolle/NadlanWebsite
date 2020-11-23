@@ -125,17 +125,111 @@ class Form extends React.Component {
               onChange={this.handleChange}
             />
             <p>{errors.phone}</p>
-          </div>{" "}
-          <div className='col-lg-6'>
-            <h5>פרטים על דירת החלומות שלכם</h5>
-            <input
-              type='checkbox'
-              className='form-control'
-              id='phone'
-              name='phone'
-              placeholder='טלפון'
-              onChange={this.handleChange}
-            />
+          </div>
+          <div className='col-lg-12'>
+            <div className='ques1'>
+              <h3 className='text-center'>איפה הייתם רוצים לגור ?</h3>
+              <div className='row'>
+                <label className='col-lg-6'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  רמת גן – מרכז העיר, מרום נווה, נווה יהושוע, הבילויים, נחלת
+                  גנים, קריית בורוכוב, קריית קריניצי, רמת אפעל, רמת חן, רמת
+                  יצחק, רמת עמידר, רמת שקמה, ש/יכון ותיקים, שכונת הגפן, שכונת
+                  הלל, שכונת חרוזים, שכונת ראשונים, תל בנימין, תל גנים, שיכון
+                  מזרחי.
+                </label>
+                <label className='col-lg-6'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  גבעתיים – בורוכוב, ארלוזרוב, הל"ה, פועלי הרכבת, שינקין, גבעת
+                  רמב"ם, גבעת קוזלובסקי, קריית יוסף,
+                </label>
+              </div>
+            </div>
+            <br />
+            <div className='ques2 '>
+              <h3 className='text-center'>כמה חדרים ?</h3>
+              <div className='d-flex justify-content-center '>
+                <label className='col-lg-6 '>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  1 עד 7
+                </label>
+                <label className='col-lg-6 ms'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  יותר
+                </label>
+              </div>
+            </div>
+            <br />
+            <div className='ques2'>
+              <h3 className='text-center '>גודל הדירה ?</h3>
+              <div className='row float-center'>
+                <label className='col-lg-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  עד 50 מ"ר
+                </label>
+                <label className='col-lg-3 '>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  50 – 70 מ"ר
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  70 – 90 מ"ר
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  90 – 120 מ"ר
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  120 ומעלה
+                </label>
+              </div>
+            </div>
             <p>{errors.phone}</p>
           </div>
         </div>

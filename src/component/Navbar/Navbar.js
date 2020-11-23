@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
+import "./Navbar.css";
 
 class Navbar extends Component {
   render() {
@@ -9,11 +10,10 @@ class Navbar extends Component {
       <Sticky top={0} innerZ={9999} activeClass='navbar_fixed'>
         <nav className={`navbar navbar-expand-lg navbar-light ${mClass}`}>
           <div className={`container ${mContainer}`}>
-            <a className='navbar-brand logo_h' href='index.html'>
+            <a className='navbar-brand logo_h ' href='index.html' id='logo_img'>
               <img src={require("../../image/" + mainlogo)} alt='' />
               <img src={require("../../image/" + stickylogo)} alt='' />
             </a>
-
             <button
               className='navbar-toggler'
               type='button'
@@ -30,96 +30,9 @@ class Navbar extends Component {
             <div
               className='collapse navbar-collapse offset'
               id='navbarSupportedContent'
-            >
-              {/* <ul className='nav navbar-nav m-auto'>
-                <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='home'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    בית
-                  </Link>
-                </li>
+            ></div>
 
-                <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='about'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    אודות
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='service'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    שירותים
-                  </Link>
-                </li>
-                {/* <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='portfolio'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    Portfolio
-                  </Link>
-                </li> */}
-              {/* <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='testimonial'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    Testimonial
-                  </Link>
-                </li> */}
-              {/* <li className='nav-item'>
-                  <Link
-                    className='nav-link'
-                    activeClass='active'
-                    to='blog'
-                    spy={true}
-                    smooth={true}
-                    offset={-86}
-                    duration={500}
-                  >
-                    Blog
-                  </Link>
-                </li> */}
-              {/* </ul> */}
-              {/* <ul className='nav navbar-nav navbar-right d-md-none d-lg-block'>
-                <li className='nav-item'>
-                  <a href='./' className='login'>
-                    login
-                  </a>
-                </li>
-              </ul> */}
-            </div>
+            <h5 className='header nav-item'>test</h5>
           </div>
         </nav>
       </Sticky>
