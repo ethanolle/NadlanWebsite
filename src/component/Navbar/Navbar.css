@@ -8,3 +8,7 @@
   font-size: 1.8em !important;
   background-color: transparent !important;
 }
+#transparent {
+  background-color: transparent !important;
+  color: aliceblue !important;
+}

@@ -14,7 +14,7 @@ class Navbar extends Component {
               <img src={require("../../image/" + mainlogo)} alt='' />
               <img src={require("../../image/" + stickylogo)} alt='' />
             </a>
-            <div className='nav navbar-nav m-auto'>
+            <div className='nav navbar-nav m-auto' id='transparent'>
               <div className='nav-item'>
                 <h1 className='header nav-link  '>מערכת התאמת נכסים לקונים</h1>
               </div>

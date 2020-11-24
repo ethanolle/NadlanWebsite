@@ -94,7 +94,7 @@ class Form extends React.Component {
             />
             <p>{errors.name}</p>
           </div>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 '>
             <input
               type='text'
               className='form-control'
@@ -139,7 +139,7 @@ class Form extends React.Component {
             <br />
             <div className='ques2 '>
               <h3 className='text-center'>כמה חדרים ?</h3>
-              <div className='d-flex justify-content-center '>
+              <div className=' row float-center d-flex justify-content-center '>
                 <label className='m-3'>
                   <input
                     name='isGoing'
@@ -149,7 +149,7 @@ class Form extends React.Component {
                   />
                   1
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -158,7 +158,7 @@ class Form extends React.Component {
                   />
                   1.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -167,7 +167,7 @@ class Form extends React.Component {
                   />
                   2
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -176,7 +176,7 @@ class Form extends React.Component {
                   />
                   2.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -185,7 +185,7 @@ class Form extends React.Component {
                   />
                   3
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -194,7 +194,7 @@ class Form extends React.Component {
                   />
                   3.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -203,7 +203,7 @@ class Form extends React.Component {
                   />
                   4
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -212,7 +212,7 @@ class Form extends React.Component {
                   />
                   4.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -221,7 +221,7 @@ class Form extends React.Component {
                   />
                   5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -230,7 +230,7 @@ class Form extends React.Component {
                   />
                   5.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -239,7 +239,7 @@ class Form extends React.Component {
                   />
                   6
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -248,7 +248,7 @@ class Form extends React.Component {
                   />
                   6.5
                 </label>
-                <label className='m-3'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -257,7 +257,7 @@ class Form extends React.Component {
                   />
                   7
                 </label>
-                <label className='m-3'>
+                <label className=' m-3 '>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -272,7 +272,7 @@ class Form extends React.Component {
             <div className='ques3'>
               <h3 className='text-center '>גודל הדירה ?</h3>
               <div className='row float-center d-flex justify-content-center'>
-                <label className='col-lg-3'>
+                <label className='col-lg-2'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -281,7 +281,7 @@ class Form extends React.Component {
                   />
                   עד 50 מ"ר
                 </label>
-                <label className='col-lg-3 '>
+                <label className='col-lg-2'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -410,15 +410,6 @@ class Form extends React.Component {
             <p>{errors.phone}</p>
           </div>
         </div>
-
-        {/* <textarea
-          name='message'
-          id='message'
-          className='form-control'
-          rows='6'
-          placeholder='Your Message ...'
-          onChange={this.handleChange}
-        ></textarea> */}
         <div className='d-flex justify-content-center'>
           <button type='submit' className='btn btn-warning btn-lg  '>
             שלח

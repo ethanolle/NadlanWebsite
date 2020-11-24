@@ -16,9 +16,9 @@ class Footer extends Component {
                 {jhonData.socialLinks.map((item) => {
                   return (
                     <li key={item.name}>
-                      <a href={item.url}>
-                        <i className={item.className}></i>
-                      </a>
+                      {/* //   <a href={item.url}>
+                    //     <i className={item.className}></i>
+                    //   </a> */}
                     </li>
                   );
                 })}
@@ -26,10 +26,10 @@ class Footer extends Component {
             </Fade>
 
             <h6>
-              Made with love by{" "}
-              <a href='https://themeforest.net/user/blazethemez'>Blazethemez</a>
+              Made with love by Ethan
+              {/* <a href='https://themeforest.net/user/blazethemez'>Blazethemez</a> */}
             </h6>
-            <p>© 2019 Blazethemez - All Rights Reserved</p>
+            {/* <p>© 2019 Blazethemez - All Rights Reserved</p> */}
           </div>
         </div>
       </section>
