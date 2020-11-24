@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
+import "./Form.css";
 
 class Form extends React.Component {
   constructor(props) {
@@ -93,28 +94,6 @@ class Form extends React.Component {
             />
             <p>{errors.name}</p>
           </div>
-          {/* <div className='col-lg-6'>
-            <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
-              placeholder='Your Email*'
-              onChange={this.handleChange}
-            />
-            <p>{errors.email}</p>
-          </div> */}
-          {/* <div className='col-lg-6'>
-            <input
-              type='text'
-              id='subject'
-              name='subject'
-              className='form-control'
-              placeholder='Subject*'
-              onChange={this.handleChange}
-            />
-            <p>{errors.subject}</p>
-          </div> */}
           <div className='col-lg-6'>
             <input
               type='text'
@@ -128,7 +107,9 @@ class Form extends React.Component {
           </div>
           <div className='col-lg-12'>
             <div className='ques1'>
-              <h3 className='text-center'>איפה הייתם רוצים לגור ?</h3>
+              <h3 className='text-center d-flex justify-content-center'>
+                איפה הייתם רוצים לגור ?
+              </h3>
               <div className='row'>
                 <label className='col-lg-6'>
                   <input
@@ -159,16 +140,124 @@ class Form extends React.Component {
             <div className='ques2 '>
               <h3 className='text-center'>כמה חדרים ?</h3>
               <div className='d-flex justify-content-center '>
-                <label className='col-lg-6 '>
+                <label className='m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
                   />
-                  1 עד 7
+                  1
                 </label>
-                <label className='col-lg-6 ms'>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  1.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  2
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  2.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  3
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  3.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  4
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  4.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  5.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  6
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  6.5
+                </label>
+                <label className='m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  7
+                </label>
+                <label className='m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
@@ -180,9 +269,9 @@ class Form extends React.Component {
               </div>
             </div>
             <br />
-            <div className='ques2'>
+            <div className='ques3'>
               <h3 className='text-center '>גודל הדירה ?</h3>
-              <div className='row float-center'>
+              <div className='row float-center d-flex justify-content-center'>
                 <label className='col-lg-3'>
                   <input
                     name='isGoing'
@@ -230,6 +319,94 @@ class Form extends React.Component {
                 </label>
               </div>
             </div>
+            <div className='ques4'>
+              <h3 className='text-center '>מה עוד?</h3>
+              <div className='row float-center d-flex justify-content-center'>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  חניה
+                </label>
+                <label className='col-lg-2 '>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  מעלית
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  ממ"ד
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  מרפסת שמש
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  מחסן
+                </label>
+                <label className='col-lg-2'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  משופצת
+                </label>
+              </div>
+            </div>
+            <div className='ques5 '>
+              <h3 className='text-center '>צריכים למכור את דירתכם ?</h3>
+              <div className='d-flex justify-content-center'>
+                <div className='form-check form-check-inline m-2 '>
+                  <input
+                    className='form-check-input'
+                    type='radio'
+                    name='inlineRadioOptions'
+                    id='inlineRadio1'
+                    value='option1'
+                  />
+                  <label className='form-check-label' for='inlineRadio1'>
+                    1
+                  </label>
+                </div>
+                <div className='form-check form-check-inline'>
+                  <input
+                    class='form-check-input'
+                    type='radio'
+                    name='inlineRadioOptions'
+                    id='inlineRadio2'
+                    value='option2'
+                  />
+                  <label className='form-check-label' for='inlineRadio2'>
+                    2
+                  </label>
+                </div>
+              </div>
+            </div>
             <p>{errors.phone}</p>
           </div>
         </div>
@@ -242,9 +419,11 @@ class Form extends React.Component {
           placeholder='Your Message ...'
           onChange={this.handleChange}
         ></textarea> */}
-        <button type='submit' className='btn send_btn theme_btn rtl'>
-          שלח
-        </button>
+        <div className='d-flex justify-content-center'>
+          <button type='submit' className='btn btn-warning btn-lg  '>
+            שלח
+          </button>
+        </div>
       </form>
     );
   }

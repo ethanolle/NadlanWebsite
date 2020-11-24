@@ -6,5 +6,5 @@ Form {
   direction: rtl;
 }
 #contacts {
-  /* background-color: transparent; */
+  /* background-color: transparent !important; */
 }

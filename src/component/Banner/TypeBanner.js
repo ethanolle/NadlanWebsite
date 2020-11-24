@@ -18,12 +18,15 @@ class TypeBanner extends Component {
           <div className='container'>
             <div className='banner_content'>
               <Reveal effect='fadeInUp' duration={1500}>
-                <h2 className='wow fadeInLeft animated'>{jhonData.name2}</h2>
+                <h1 className='wow fadeInLeft animated banner '>
+                  {jhonData.name2}
+                </h1>
+                <h2 className='wow fadeInLeft animated assistant'>
+                  מערכת התאמת נכסים לקונים
+                </h2>
                 <h5 className='wow fadeInLeft animated '>{jhonData.ptext}</h5>
               </Reveal>
-              <Reveal effect='fadeInUp' duration={2000}>
-                {/* <ContactTwo /> */}
-              </Reveal>
+              <Reveal effect='fadeInUp' duration={2000}></Reveal>
             </div>
           </div>
         </Parallax>
