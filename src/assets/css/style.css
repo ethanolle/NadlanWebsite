@@ -46,6 +46,10 @@ Table of Content:
   margin-right: 8.33333333%;
 }
 
+#home {
+  background-color: #000 !important;
+}
+
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 .particle {
@@ -495,6 +499,10 @@ h6 {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /*========== banner_area css =========*/
+.banner_area {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
 .banner_area,
 .banner_area_two {
   min-height: 100vh;
@@ -518,6 +526,10 @@ h6 {
 }
 .react-parallax-content {
   width: 100%;
+}
+#home {
+  border-radius: 100px;
+  overflow: "hidden";
 }
 .banner_area:before {
   content: "";
@@ -1387,6 +1399,9 @@ h6 {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /*============ contact-area css ===============*/
+#contact_no_wrap {
+  white-space: nowrap !important;
+}
 
 .contact-area {
   padding: 120px 0px;
@@ -1541,7 +1556,7 @@ h6 {
 .footer-area {
   background: #fba819;
   position: relative;
-  padding: 60px 0px 60px;
+  padding: 15px 0px 15px;
 }
 
 .footer-content {
@@ -1582,10 +1597,9 @@ h6 {
   color: #494949;
 }
 
-.footer-content h6 {
-  font: 400 14px/20px "Lora", serif;
-  color: #999;
-  padding-top: 15px;
+.footer-content h4 {
+  font: "Lora", serif;
+  color: rgb(0, 0, 0);
 }
 
 .footer-content h6 a {

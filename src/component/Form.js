@@ -2,136 +2,245 @@ import React from "react";
 import emailjs from "emailjs-com";
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.state = {
-      errors: {
-        name: "",
-        subject: "",
-        phone: "",
-        email: "",
-      },
+      show: false,
+      loading: false,
     };
   }
 
-  handleChange = (event) => {
-    let name = event.target.name;
-    let value = event.target.valueב;
-    let errors = this.state.errors;
+  handleClose() {
+    this.setState({ show: false });
+    this.setState({ name: "" });
+    this.resetForm();
+  }
 
-    switch (name) {
-      case "name":
-        errors.name = value.length === 0 ? "Name is not empty" : "";
-        break;
-      // case "subject":
-      //   errors.subject = value.length < 5 ? "Subject must be 5 characters" : "";
-      //   break;
-      case "phone":
-        errors.phone = value.length < 5 ? "phone is not empty" : "";
-        break;
-      // case "email":
-      //   errors.email = value.length < 5 ? "Subject is not empty" : "";
-      //   let appos = value.indexOf("@");
-      //   let dots = value.lastIndexOf(".");
+  handleShow() {
+    this.setState({ show: true, loading: false });
+  }
 
-      //   if (appos < 1 || dots - appos < 2) {
-      //     errors.email = "please enter valid email";
-      //   }
-
-      //   break;
-
-      default:
-        break;
-    }
-    this.setState({ errors, [name]: value });
+  state = {
+    name: "",
+    phone: "",
+    subject: "",
+    message: "",
+    show: false,
   };
 
-  submitHandler = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
-    // if (
-    //   this.state.errors.name.length === 0 &&
-    //   this.state.errors.subject.length === 0 &&
-    //   this.state.errors.phone.length === 0 &&
-    //   this.state.errors.email.length === 0
-    // ) {
-    //   alert("form is valid");
-    // } else {
-    //   alert("form is invalid");
-    // }
+    this.setState({ loading: true });
+
+    const { phone, subject, message, name } = this.state;
+
+    let templateParams = {
+      phone: phone,
+      name: name,
+      to_name: "ethan.sayagh@gmail.com",
+      subject: subject,
+      message: message,
+    };
+
+    //=======================
+    // Use your own API key
+    //=======================
+
     emailjs
-      .sendForm(
-        "gmail",
-        "template_zo1q2mh",
-        e.target,
-        "user_vvQtVRIgqRETJC2JHOJz9"
+      .send(
+        "ContactMail",
+        "template_lw66b9m",
+        templateParams,
+        "user_dpP7RSRMd857gadzuRAji"
       )
       .then(
         (result) => {
+          this.handleShow();
           console.log(result.text);
-          alert("form is valid");
         },
         (error) => {
           console.log(error.text);
-          alert("form is invalid");
         }
       );
+  }
+
+  resetForm() {
+    this.setState({
+      phone: "",
+      subject: "",
+      message: "",
+      modal: false,
+      name: "",
+    });
+  }
+
+  handleChange = (param, e) => {
+    this.setState({ [param]: e.target.value });
   };
 
   render() {
     const { errors } = this.state;
     return (
-      <form onSubmit={this.submitHandler.bind(this)} className='form_class'>
+      <form onSubmit={this.handleSubmit.bind(this)} className='form_class'>
         <div className='row'>
           <div className='col-lg-6'>
             <input
+              value={this.state.name}
               type='text'
               id='name'
               name='name'
               className='form-control'
-              placeholder='שם'
-              onChange={this.handleChange}
+              placeholder=' שם מלא'
+              onChange={this.handleChange.bind(this, "name")}
+              required
             />
-            <p>{errors.name}</p>
           </div>
           <div className='col-lg-6 '>
             <input
+              value={this.state.phone}
               type='text'
               className='form-control'
               id='phone'
               name='phone'
               placeholder='טלפון'
-              onChange={this.handleChange}
+              onChange={this.handleChange.bind(this, "phone")}
             />
-            <p>{errors.phone}</p>
           </div>
           <div className='col-lg-12'>
-            <div className='ques1'>
-              <h3 className='text-center d-flex justify-content-center'>
-                איפה הייתם רוצים לגור ?
-              </h3>
-              <div className='row'>
-                <label className='col-lg-6'>
+            <h3 className='text-center d-flex justify-content-center'>
+              איפה הייתם רוצים לגור ?
+            </h3>
+            <br />
+            <div className='ques2 '>
+              <h3 className='text-center'>רמת גן</h3>
+              <div className=' row float-center d-flex justify-content-center '>
+                <label className='m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
                   />
-                  רמת גן – מרכז העיר, מרום נווה, נווה יהושוע, הבילויים, נחלת
-                  גנים, קריית בורוכוב, קריית קריניצי, רמת אפעל, רמת חן, רמת
-                  יצחק, רמת עמידר, רמת שקמה, ש/יכון ותיקים, שכונת הגפן, שכונת
-                  הלל, שכונת חרוזים, שכונת ראשונים, תל בנימין, תל גנים, שיכון
-                  מזרחי.
+                  1
                 </label>
-                <label className='col-lg-6'>
+                <label className=' m-3'>
                   <input
                     name='isGoing'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
                   />
-                  גבעתיים – בורוכוב, ארלוזרוב, הל"ה, פועלי הרכבת, שינקין, גבעת
-                  רמב"ם, גבעת קוזלובסקי, קריית יוסף,
+                  1.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  2
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  2.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  3
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  3.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  4
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  4.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  5.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  6
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  6.5
+                </label>
+                <label className=' m-3'>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  7
+                </label>
+                <label className=' m-3 '>
+                  <input
+                    name='isGoing'
+                    type='checkbox'
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange}
+                  />
+                  יותר
                 </label>
               </div>
             </div>
@@ -406,7 +515,6 @@ class Form extends React.Component {
                 </div>
               </div>
             </div>
-            <p>{errors.phone}</p>
           </div>
         </div>
         <div className='d-flex justify-content-center'>

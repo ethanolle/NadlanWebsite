@@ -4,11 +4,12 @@ const jhonData = {
   name3: "Alexa Johnson",
   role: "Visual Designer & Front-End Developer,",
   ptext:
-    "– אהלן, פיתחנו שיטה להתאמת נכסים לקונים. מלאו את הפרטים הבאים ואנחנו כבר נדאג לשלוח לכם נכסים שיענו על הצרכים שלכם בצורה מסודרת וברורה לעין ישירות לוואצפ.",
+    " אהלן, פיתחנו שיטה להתאמת נכסים לקונים. מלאו את הפרטים הבאים ואנחנו כבר נדאג לשלוח לכם נכסים שיענו על הצרכים שלכם בצורה מסודרת וברורה לעין ישירות לוואצפ. מבטיחים להיות ממוקדים ולא לחפור !",
   socialLinks: [
     {
       name: "Facebook",
-      url: "http://www.linkedin.com/",
+      url:
+        "https://www.facebook.com/Friendly-%D7%AA%D7%99%D7%95%D7%95%D7%9A-%D7%95%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%A0%D7%93%D7%9C%D7%9F-110933907419959/?view_public_for=110933907419959",
       className: "social_facebook",
     },
     {

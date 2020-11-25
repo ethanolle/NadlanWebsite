@@ -7,29 +7,9 @@ class Footer extends Component {
     return (
       <section className='footer-area'>
         <div className='container'>
-          <div className='footer-content'>
-            <Link to='/' className='logo wow fadeInDown' data-wow-delay='0.4s'>
-              <img src={require("../image/logo3.png")} alt='' id='logo_img' />
-            </Link>
-            <Fade top cascade>
-              <ul className='list_style'>
-                {jhonData.socialLinks.map((item) => {
-                  return (
-                    <li key={item.name}>
-                      {/* //   <a href={item.url}>
-                    //     <i className={item.className}></i>
-                    //   </a> */}
-                    </li>
-                  );
-                })}
-              </ul>
-            </Fade>
-
-            <h6>
-              Made with love by Ethan
-              {/* <a href='https://themeforest.net/user/blazethemez'>Blazethemez</a> */}
-            </h6>
-            {/* <p>© 2019 Blazethemez - All Rights Reserved</p> */}
+          <div className='footer-content d-flex justify-content-between'>
+            <h4>Home@re-friendly.com</h4>
+            <h4>ארלוזרוב 11, רמת גן</h4>
           </div>
         </div>
       </section>

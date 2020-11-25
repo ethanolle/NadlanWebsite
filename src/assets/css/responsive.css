@@ -257,6 +257,11 @@
   .footer-content p {
     letter-spacing: 2px;
   }
+  .footer-content h4 {
+    font-size: 100%;
+    font: "Lora", serif;
+    color: rgb(0, 0, 0);
+  }
 }
 @media (max-width: 667px) {
   .navbar .logo_h img {
@@ -403,6 +408,10 @@
   }
 }
 @media (max-width: 450px) {
+  .banner_area {
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+  }
   nav #transparent {
     font-size: 80% !important;
   }

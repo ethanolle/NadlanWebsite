@@ -20,11 +20,8 @@ class ContactTwo extends Component {
               className='particle'
             />
             <Card>
-              <div className='section_title m-3'>
-                <SectionTitleTwo
-                  stitle='מבטיחים להיות ממוקדים ולא לחפור !'
-                  btitle='פרטים שלכם:'
-                />
+              <div className='section_title m-3 ' id='contact_no_wrap'>
+                <SectionTitleTwo stitle='' btitle='פרטים שלכם:' />
               </div>
               <div className='col-lg-12 col-md-12'>
                 <Reveal effect='fadeInRight' duration={800}>
