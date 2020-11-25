@@ -4,7 +4,6 @@ import ContactTwo from "./component/ContactTwo";
 import TypeBanner from "./component/Banner/TypeBanner";
 import Footer from "./component/Footer";
 import jhonData from "./component/jhonData";
-import "./Home2.css";
 
 export const Home2 = () => (
   <div className='body_wrapper'>

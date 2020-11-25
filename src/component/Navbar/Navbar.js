@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
-import "./Navbar.css";
 
 class Navbar extends Component {
   render() {
@@ -14,7 +13,7 @@ class Navbar extends Component {
               <img src={require("../../image/" + mainlogo)} alt='' />
               <img src={require("../../image/" + stickylogo)} alt='' />
             </a>
-            <div className='nav navbar-nav m-auto' id='transparent'>
+            <div className='nav navbar-nav m-auto ' id='transparent'>
               <div className='nav-item'>
                 <h1 className='header nav-link  '>מערכת התאמת נכסים לקונים</h1>
               </div>

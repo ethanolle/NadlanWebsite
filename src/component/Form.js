@@ -1,6 +1,5 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import "./Form.css";
 
 class Form extends React.Component {
   constructor(props) {
@@ -390,7 +389,7 @@ class Form extends React.Component {
                     value='option1'
                   />
                   <label className='form-check-label' for='inlineRadio1'>
-                    1
+                    כן
                   </label>
                 </div>
                 <div className='form-check form-check-inline'>
@@ -402,7 +401,7 @@ class Form extends React.Component {
                     value='option2'
                   />
                   <label className='form-check-label' for='inlineRadio2'>
-                    2
+                    לא
                   </label>
                 </div>
               </div>

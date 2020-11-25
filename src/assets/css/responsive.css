@@ -122,6 +122,9 @@
     color: #fbfbfb;
     display: inline-block;
   }
+  .navbar .logo_h img {
+    max-width: 200%;
+  }
   .about_area_two .about_item {
     margin-bottom: 30px;
   }
@@ -256,6 +259,9 @@
   }
 }
 @media (max-width: 667px) {
+  .navbar .logo_h img {
+    max-width: 200%;
+  }
   .error_text:after {
     display: none;
   }
@@ -275,6 +281,9 @@
 }
 
 @media (max-width: 576px) {
+  .navbar .logo_h img {
+    max-width: 200%;
+  }
   .portfolio_menu li {
     margin-right: 0px;
     margin-bottom: 8px;
@@ -394,6 +403,13 @@
   }
 }
 @media (max-width: 450px) {
+  nav #transparent {
+    font-size: 80% !important;
+  }
+
+  .navbar .logo_h img {
+    max-width: 200%;
+  }
   .navbar.navbar_fixed .login {
     display: none;
   }
