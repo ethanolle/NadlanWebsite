@@ -1,5 +1,10 @@
 import React from "react";
 import emailjs from "emailjs-com";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+import { colourOptions } from "./FormData";
+
+const animatedComponents = makeAnimated();
 
 class Form extends React.Component {
   constructor(props, context) {
@@ -25,8 +30,8 @@ class Form extends React.Component {
   state = {
     name: "",
     phone: "",
-    subject: "",
-    message: "",
+    sellHome: "",
+    whatElse: ["test"],
     show: false,
   };
 
@@ -34,14 +39,15 @@ class Form extends React.Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    const { phone, subject, message, name } = this.state;
+    const { phone, sellHome, whatElse, name } = this.state;
 
     let templateParams = {
       phone: phone,
       name: name,
+      whatElse: whatElse,
       to_name: "ethan.sayagh@gmail.com",
-      subject: subject,
-      message: message,
+      sellHome: sellHome,
+      whatElse: whatElse,
     };
 
     //=======================
@@ -50,8 +56,8 @@ class Form extends React.Component {
 
     emailjs
       .send(
-        "ContactMail",
-        "template_lw66b9m",
+        "NadlanMail",
+        "NadlanTemplate",
         templateParams,
         "user_dpP7RSRMd857gadzuRAji"
       )
@@ -69,16 +75,39 @@ class Form extends React.Component {
   resetForm() {
     this.setState({
       phone: "",
-      subject: "",
+      sellHome: "",
       message: "",
       modal: false,
       name: "",
+      whatElse: [],
+    });
+  }
+  handleCheckbox(e) {
+    const { whatElse } = this.state;
+    console.log(e);
+    console.log(whatElse);
+    let newArr = [];
+
+    if (!whatElse.includes(e)) {
+      newArr = [...whatElse, e];
+    } else {
+      newArr = whatElse.filter((a) => a !== e);
+    }
+    this.setState({ whatElse: newArr }, () =>
+      console.log("updated state", newArr)
+    );
+  }
+
+  handleRadioButton(value) {
+    this.setState({
+      sellHome: value,
     });
   }
 
   handleChange = (param, e) => {
     this.setState({ [param]: e.target.value });
   };
+  npm;
 
   render() {
     const { errors } = this.state;
@@ -113,15 +142,21 @@ class Form extends React.Component {
               איפה הייתם רוצים לגור ?
             </h3>
             <br />
+            <Select
+              closeMenuOnSelect={true}
+              components={animatedComponents}
+              isMulti
+              options={colourOptions}
+            />
             <div className='ques2 '>
               <h3 className='text-center'>רמת גן</h3>
               <div className=' row float-center d-flex justify-content-center '>
                 <label className='m-3'>
                   <input
+                    value={this.state.whatElse}
                     name='isGoing'
                     type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
+                    onChange={() => this.handleCheckbox("לא")}
                   />
                   1
                 </label>
@@ -496,6 +531,7 @@ class Form extends React.Component {
                     name='inlineRadioOptions'
                     id='inlineRadio1'
                     value='option1'
+                    onChange={() => this.handleRadioButton("כן")}
                   />
                   <label className='form-check-label' for='inlineRadio1'>
                     כן
@@ -508,6 +544,7 @@ class Form extends React.Component {
                     name='inlineRadioOptions'
                     id='inlineRadio2'
                     value='option2'
+                    onChange={() => this.handleRadioButton("לא")}
                   />
                   <label className='form-check-label' for='inlineRadio2'>
                     לא
