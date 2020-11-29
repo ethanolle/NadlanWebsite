@@ -1,10 +1,8 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import { colourOptions } from "./FormData";
-
-const animatedComponents = makeAnimated();
+import { ramatGanOption, givatayimOption } from "./FormData";
+import Select, { components } from "react-select";
 
 class Form extends React.Component {
   constructor(props, context) {
@@ -14,6 +12,10 @@ class Form extends React.Component {
     this.state = {
       show: false,
       loading: false,
+      select: {
+        value: ramatGanOption[0], // "One" as initial value for react-select
+        ramatGanOption, // all available options
+      },
     };
   }
 
@@ -39,7 +41,10 @@ class Form extends React.Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    const { phone, sellHome, whatElse, name } = this.state;
+    const { phone, sellHome, whatElse, name, select } = this.state;
+    console.log(select.value.value);
+    console.log(phone);
+    console.log(name);
 
     let templateParams = {
       phone: phone,
@@ -48,6 +53,7 @@ class Form extends React.Component {
       to_name: "ethan.sayagh@gmail.com",
       sellHome: sellHome,
       whatElse: whatElse,
+      ramatGanOption: select.value,
     };
 
     //=======================
@@ -82,21 +88,6 @@ class Form extends React.Component {
       whatElse: [],
     });
   }
-  handleCheckbox(e) {
-    const { whatElse } = this.state;
-    console.log(e);
-    console.log(whatElse);
-    let newArr = [];
-
-    if (!whatElse.includes(e)) {
-      newArr = [...whatElse, e];
-    } else {
-      newArr = whatElse.filter((a) => a !== e);
-    }
-    this.setState({ whatElse: newArr }, () =>
-      console.log("updated state", newArr)
-    );
-  }
 
   handleRadioButton(value) {
     this.setState({
@@ -107,10 +98,40 @@ class Form extends React.Component {
   handleChange = (param, e) => {
     this.setState({ [param]: e.target.value });
   };
-  npm;
+
+  setValue = (value) => {
+    this.setState((prevState) => ({
+      select: {
+        ...prevState.select,
+        value,
+      },
+    }));
+  };
+
+  handleClick = () => {
+    this.setValue(null); // here we reset value
+  };
+
+  setSelectValue = (value) => {
+    this.setState((prevState) => ({
+      select: {
+        ...prevState.select,
+        value,
+      },
+    }));
+  };
+
+  handleSelectChange = (value) => {
+    console.log(value);
+    this.setValue(value);
+  };
+
+  handleSelectClick = () => {
+    this.setValue(null); // here we reset value
+  };
 
   render() {
-    const { errors } = this.state;
+    const { errors, select } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className='form_class'>
         <div className='row'>
@@ -141,143 +162,27 @@ class Form extends React.Component {
             <h3 className='text-center d-flex justify-content-center'>
               איפה הייתם רוצים לגור ?
             </h3>
-            <br />
-            <Select
-              closeMenuOnSelect={true}
-              components={animatedComponents}
-              isMulti
-              options={colourOptions}
-            />
             <div className='ques2 '>
               <h3 className='text-center'>רמת גן</h3>
-              <div className=' row float-center d-flex justify-content-center '>
-                <label className='m-3'>
-                  <input
-                    value={this.state.whatElse}
-                    name='isGoing'
-                    type='checkbox'
-                    onChange={() => this.handleCheckbox("לא")}
-                  />
-                  1
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  1.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  2
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  2.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  3
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  3.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  4
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  4.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  5.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  6
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  6.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  7
-                </label>
-                <label className=' m-3 '>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  יותר
-                </label>
-              </div>
+              <Select
+                closeMenuOnSelect={false}
+                blurInputOnSelect={false}
+                hideSelectedOptions={true}
+                backspaceRemovesValue={true}
+                isMulti
+                value={select.value}
+                onChange={this.handleSelectChange}
+                options={select.ramatGanOption}
+              />
+              <h3 className='text-center'>גבעתיים</h3>
+              <Select
+                closeMenuOnSelect={false}
+                blurInputOnSelect={false}
+                hideSelectedOptions={true}
+                backspaceRemovesValue={true}
+                isMulti
+                options={givatayimOption}
+              />
             </div>
             <br />
             <div className='ques2 '>
