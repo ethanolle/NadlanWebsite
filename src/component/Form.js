@@ -12,9 +12,13 @@ class Form extends React.Component {
     this.state = {
       show: false,
       loading: false,
-      select: {
+      ramatGan: {
         value: ramatGanOption[0], // "One" as initial value for react-select
         ramatGanOption, // all available options
+      },
+      givatayim: {
+        value: givatayimOption[0], // "One" as initial value for react-select
+        givatayimOption, // all available options
       },
     };
   }
@@ -41,11 +45,9 @@ class Form extends React.Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    const { phone, sellHome, whatElse, name, select } = this.state;
-    console.log(select.value.value);
-    console.log(phone);
-    console.log(name);
-
+    const { phone, sellHome, whatElse, name, ramatGan, givatayim } = this.state;
+    let ramatGanList = ramatGan.value.map(({ value }) => value);
+    let givatayimList = givatayim.value.map(({ value }) => value);
     let templateParams = {
       phone: phone,
       name: name,
@@ -53,7 +55,8 @@ class Form extends React.Component {
       to_name: "ethan.sayagh@gmail.com",
       sellHome: sellHome,
       whatElse: whatElse,
-      ramatGanOption: select.value,
+      ramatGanOption: ramatGanList,
+      givatayimOption: givatayimList,
     };
 
     //=======================
@@ -99,10 +102,25 @@ class Form extends React.Component {
     this.setState({ [param]: e.target.value });
   };
 
-  setValue = (value) => {
+  handleRamatGanChange = (value) => {
+    this.setRamatGanValue(value);
+  };
+  handleGivatayimChange = (value) => {
+    this.setGivatayimValue(value);
+  };
+
+  setRamatGanValue = (value) => {
     this.setState((prevState) => ({
-      select: {
-        ...prevState.select,
+      ramatGan: {
+        ...prevState.ramatGan,
+        value,
+      },
+    }));
+  };
+  setGivatayimValue = (value) => {
+    this.setState((prevState) => ({
+      givatayim: {
+        ...prevState.givatayim,
         value,
       },
     }));
@@ -112,26 +130,8 @@ class Form extends React.Component {
     this.setValue(null); // here we reset value
   };
 
-  setSelectValue = (value) => {
-    this.setState((prevState) => ({
-      select: {
-        ...prevState.select,
-        value,
-      },
-    }));
-  };
-
-  handleSelectChange = (value) => {
-    console.log(value);
-    this.setValue(value);
-  };
-
-  handleSelectClick = () => {
-    this.setValue(null); // here we reset value
-  };
-
   render() {
-    const { errors, select } = this.state;
+    const { errors, ramatGan, givatayim } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className='form_class'>
         <div className='row'>
@@ -170,9 +170,9 @@ class Form extends React.Component {
                 hideSelectedOptions={true}
                 backspaceRemovesValue={true}
                 isMulti
-                value={select.value}
-                onChange={this.handleSelectChange}
-                options={select.ramatGanOption}
+                value={ramatGan.value}
+                onChange={this.handleRamatGanChange}
+                options={ramatGan.ramatGanOption}
               />
               <h3 className='text-center'>גבעתיים</h3>
               <Select
@@ -181,7 +181,9 @@ class Form extends React.Component {
                 hideSelectedOptions={true}
                 backspaceRemovesValue={true}
                 isMulti
-                options={givatayimOption}
+                value={givatayim.value}
+                onChange={this.handleGivatayimChange}
+                options={givatayim.givatayimOption}
               />
             </div>
             <br />
