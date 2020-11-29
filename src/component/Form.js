@@ -192,7 +192,7 @@ class Form extends React.Component {
               <div className=' row float-center d-flex justify-content-center '>
                 <label className='m-3'>
                   <input
-                    name='isGoing'
+                    name='1'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -201,7 +201,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='1.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -210,7 +210,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='2'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -219,7 +219,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='2.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -228,7 +228,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='3'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -237,7 +237,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='3.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -246,7 +246,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='4'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -255,7 +255,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='4.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -264,7 +264,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -273,7 +273,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='5.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -282,7 +282,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='6'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -291,7 +291,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='6.5'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -300,7 +300,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3'>
                   <input
-                    name='isGoing'
+                    name='7'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
@@ -309,7 +309,7 @@ class Form extends React.Component {
                 </label>
                 <label className=' m-3 '>
                   <input
-                    name='isGoing'
+                    name='יותר'
                     type='checkbox'
                     checked={this.state.isGoing}
                     onChange={this.handleInputChange}
