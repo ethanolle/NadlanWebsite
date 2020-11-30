@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c2d873d441c4358c1096cde7d9c56b80",
+    "revision": "dabcf101651482a8d16162250bdb898e",
     "url": "/index.html"
   },
   {
-    "revision": "9e409afeceec4b1241be",
+    "revision": "ce9551c9c9358000a87d",
     "url": "/static/css/2.5e4c6612.chunk.css"
   },
   {
-    "revision": "16dfe6cd44f4c7f9dff6",
-    "url": "/static/css/main.7367480f.chunk.css"
+    "revision": "d4603c9357046f13171c",
+    "url": "/static/css/main.7370d0ab.chunk.css"
   },
   {
-    "revision": "9e409afeceec4b1241be",
-    "url": "/static/js/2.f509fed4.chunk.js"
+    "revision": "ce9551c9c9358000a87d",
+    "url": "/static/js/2.41ecc0bb.chunk.js"
   },
   {
     "revision": "5b7c94aa95d4b922cfe4d61c557a0850",
-    "url": "/static/js/2.f509fed4.chunk.js.LICENSE"
+    "url": "/static/js/2.41ecc0bb.chunk.js.LICENSE"
   },
   {
-    "revision": "16dfe6cd44f4c7f9dff6",
-    "url": "/static/js/main.aed55b83.chunk.js"
+    "revision": "d4603c9357046f13171c",
+    "url": "/static/js/main.99f2201f.chunk.js"
   },
   {
     "revision": "5454fc896364a3834368",
@@ -72,6 +72,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/ElegantIcons.fdd9e757.woff"
   },
   {
+    "revision": "37372a48c19b15613d9763ba75674ee5",
+    "url": "/static/media/Facebook.37372a48.png"
+  },
+  {
     "revision": "803ca4bc6a6f08a842a830bbb635f456",
     "url": "/static/media/Flaticon.803ca4bc.woff"
   },
@@ -82,6 +86,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b40f85cbdcf06fbe1eec80a3d7988860",
     "url": "/static/media/Sail-Away.b40f85cb.jpg"
+  },
+  {
+    "revision": "7f312e5768cf0f36ab6977657a598bb6",
+    "url": "/static/media/WhatsApp.7f312e57.png"
   },
   {
     "revision": "d852f421924ad748c564a9271b4feda4",

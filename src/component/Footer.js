@@ -27,11 +27,17 @@ class Footer extends Component {
               src={facebookLogo}
               className='img-fluid'
               alt='Responsive image'
+              onClick={() =>
+                window.open(
+                  "https://www.facebook.com/Friendly-%D7%AA%D7%99%D7%95%D7%95%D7%9A-%D7%95%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%A0%D7%93%D7%9C%D7%9F-110933907419959/?view_public_for=110933907419959"
+                )
+              }
             />
             <img
               src={whatsappLogo}
               className='img-fluid'
               alt='Responsive image'
+              onClick={() => window.open("https://wa.me/+972506710373")}
             />
           </div>
         </div>

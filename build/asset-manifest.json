@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.7367480f.chunk.css",
-    "main.js": "/static/js/main.aed55b83.chunk.js",
-    "main.js.map": "/static/js/main.aed55b83.chunk.js.map",
+    "main.css": "/static/css/main.7370d0ab.chunk.css",
+    "main.js": "/static/js/main.99f2201f.chunk.js",
+    "main.js.map": "/static/js/main.99f2201f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fff0fe1f.js",
     "runtime-main.js.map": "/static/js/runtime-main.fff0fe1f.js.map",
     "static/css/2.5e4c6612.chunk.css": "/static/css/2.5e4c6612.chunk.css",
-    "static/js/2.f509fed4.chunk.js": "/static/js/2.f509fed4.chunk.js",
-    "static/js/2.f509fed4.chunk.js.map": "/static/js/2.f509fed4.chunk.js.map",
+    "static/js/2.41ecc0bb.chunk.js": "/static/js/2.41ecc0bb.chunk.js",
+    "static/js/2.41ecc0bb.chunk.js.map": "/static/js/2.41ecc0bb.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.edcf6ffca73443685a1491f4724b6b29.js": "/precache-manifest.edcf6ffca73443685a1491f4724b6b29.js",
+    "precache-manifest.ddd17f4a14e9e301695d8da315cbce35.js": "/precache-manifest.ddd17f4a14e9e301695d8da315cbce35.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.5e4c6612.chunk.css.map": "/static/css/2.5e4c6612.chunk.css.map",
-    "static/css/main.7367480f.chunk.css.map": "/static/css/main.7367480f.chunk.css.map",
-    "static/js/2.f509fed4.chunk.js.LICENSE": "/static/js/2.f509fed4.chunk.js.LICENSE",
+    "static/css/main.7370d0ab.chunk.css.map": "/static/css/main.7370d0ab.chunk.css.map",
+    "static/js/2.41ecc0bb.chunk.js.LICENSE": "/static/js/2.41ecc0bb.chunk.js.LICENSE",
     "static/media/10.jpg": "/static/media/10.8f2d49be.jpg",
     "static/media/2.jpg": "/static/media/2.8a7df260.jpg",
     "static/media/3.jpg": "/static/media/3.8799694e.jpg",
@@ -22,8 +22,10 @@
     "static/media/Binian1.webp": "/static/media/Binian1.8108c50a.webp",
     "static/media/Binian2.webp": "/static/media/Binian2.bca0224b.webp",
     "static/media/style.css": "/static/media/shap1.94de0520.png",
+    "static/media/Facebook.png": "/static/media/Facebook.37372a48.png",
     "static/media/flaticon.css": "/static/media/Flaticon.ceeb894f.woff2",
     "static/media/Sail-Away.jpg": "/static/media/Sail-Away.b40f85cb.jpg",
+    "static/media/WhatsApp.png": "/static/media/WhatsApp.7f312e57.png",
     "static/media/banner_img.svg": "/static/media/banner_img.d852f421.svg",
     "static/media/bottomshape.png": "/static/media/bottomshape.77982eeb.png",
     "static/media/contact.svg": "/static/media/contact.53982e80.svg",
@@ -58,8 +60,8 @@
   "entrypoints": [
     "static/js/runtime-main.fff0fe1f.js",
     "static/css/2.5e4c6612.chunk.css",
-    "static/js/2.f509fed4.chunk.js",
-    "static/css/main.7367480f.chunk.css",
-    "static/js/main.aed55b83.chunk.js"
+    "static/js/2.41ecc0bb.chunk.js",
+    "static/css/main.7370d0ab.chunk.css",
+    "static/js/main.99f2201f.chunk.js"
   ]
 }
