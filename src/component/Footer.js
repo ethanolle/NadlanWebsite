@@ -17,7 +17,7 @@ class Footer extends Component {
     let jhonData = this.props.jhonData;
     return (
       <section className='footer-area'>
-        <div className='d-flex justify-content-between container'>
+        <div className='container_footer'>
           <div className='address'>
             <h4>Home@re-friendly.com</h4>
             <h4>ארלוזרוב 11, רמת גן</h4>
