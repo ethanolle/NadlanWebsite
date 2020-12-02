@@ -498,8 +498,9 @@ h6 {
 }
 /*---------------------------------------------------- */
 .img-fluid {
+  position: relative;
   margin: 2vh;
-  max-width: 10%;
+  max-width: 5vh;
   height: auto;
 }
 

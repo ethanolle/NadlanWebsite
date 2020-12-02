@@ -22,7 +22,7 @@ class Footer extends Component {
             <h4>Home@re-friendly.com</h4>
             <h4>ארלוזרוב 11, רמת גן</h4>
           </div>
-          <div className='mw-3 share '>
+          <div className='share '>
             <img
               src={facebookLogo}
               className='img-fluid'
