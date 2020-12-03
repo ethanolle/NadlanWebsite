@@ -66,7 +66,7 @@ Table of Content:
   padding: 0px;
 }
 #logo_img {
-  width: 5%;
+  width: 5.5%;
 }
 
 a {
@@ -497,15 +497,26 @@ h6 {
   display: block;
 }
 /*---------------------------------------------------- */
+
+.modalBox {
+  border-radius: 10%;
+  border-color: aqua;
+}
 .contact_success_modal_body {
+  float: center;
   text-align: center;
   background: #ffffff;
   color: #fe8645;
+  border-radius: 10%;
 }
 .contact_success_modal_img {
   height: 15vh;
   padding-bottom: 3%;
-  border-radius: 15%;
+  border-radius: 10%;
+}
+.contact-email-text-btn:hover {
+  background: #666666;
+  color: aliceblue;
 }
 .img-fluid {
   transition: all 0.2s ease-out;

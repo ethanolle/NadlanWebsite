@@ -339,28 +339,23 @@ class Form extends React.Component {
           show={this.state.show}
           onHide={this.handleClose}
           centered
+          className='modalBox'
         >
-          <Modal.Body className='contact_success_modal_body'>
+          <Modal.Body className='contact_success_modal_body modalBox'>
             <Image
               className='contact_success_modal_img'
               src='https://icon-library.net/images/success-icon/success-icon-5.jpg'
             />
-            <h5>
-              Thank you{" "}
-              <span>
-                <strong>{this.state.name}</strong>!!
-              </span>{" "}
-              😇
-            </h5>
-            <h6>Your message was successfully recorded</h6>
+            <h1>בינגו !</h1>
+            <h3>נדאג לשלוח לכם נכסים שיענו על כל הצרכים !</h3>
             <br />
             <Button
-              variant='outline-light'
               size='lg'
               onClick={this.handleClose}
               className='contact-email-text-btn'
+              variant='warning'
             >
-              Close
+              סגור
             </Button>
           </Modal.Body>
         </Modal>
