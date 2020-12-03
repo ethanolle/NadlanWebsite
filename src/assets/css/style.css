@@ -497,16 +497,22 @@ h6 {
   display: block;
 }
 /*---------------------------------------------------- */
+.share {
+}
 .img-fluid {
-  margin: 0px 2vh 0px 2vh;
+  transition: all 0.2s ease-out;
   max-width: 5%;
+  margin: 0px 2vh 0px 2vh;
   height: auto;
   float: left;
   display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  filter: contrast(85%);
 }
 .img-fluid:hover {
   transition: all 0.2s ease-out;
-  max-width: 5.3%;
+  filter: contrast(100%);
 }
 .address {
   display: inline-block;
@@ -515,13 +521,15 @@ h6 {
   font-style: italic;
   color: black;
   text-decoration: underline;
-  margin: 0px 1vh 0px 0px;
+  margin: 0px 3vw 0px 0px;
 }
 .address h4 {
-  font-size: 150%%;
+  font-size: 3vh;
 }
 .container_footer {
+  margin: 0px 2vh 0px 2vh;
   display: inline-block;
+  white-space: nowrap;
 }
 
 /*----------------------------------------------------*/

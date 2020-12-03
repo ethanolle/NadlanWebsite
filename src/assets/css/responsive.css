@@ -7,6 +7,10 @@
   }
 }
 @media (max-width: 1199px) {
+  .img-fluid {
+    max-width: 8%;
+  }
+
   .about_img img {
     margin-left: -180px;
   }
@@ -55,6 +59,10 @@
   }
 }
 @media (max-width: 991px) {
+  .img-fluid {
+    max-width: 9%;
+  }
+
   .react-parallax.banner_area {
     min-height: 600px;
   }
@@ -196,6 +204,10 @@
 }
 
 @media (max-width: 767px) {
+  .img-fluid {
+    max-width: 10%;
+    filter: contrast(100%);
+  }
   .project_count_area .row {
     margin-bottom: -30px;
   }
@@ -264,6 +276,9 @@
   }
 }
 @media (max-width: 667px) {
+  .img-fluid {
+    max-width: 11%;
+  }
   .navbar .logo_h img {
     max-width: 200%;
   }
@@ -286,6 +301,12 @@
 }
 
 @media (max-width: 576px) {
+  .address h4 {
+    font-size: 2.5vh;
+  }
+  .img-fluid {
+    max-width: 12%;
+  }
   .navbar .logo_h img {
     max-width: 200%;
   }
@@ -408,6 +429,12 @@
   }
 }
 @media (max-width: 450px) {
+  .address h4 {
+    font-size: 1.5vh;
+  }
+  .img-fluid {
+    max-width: 14%;
+  }
   .banner_area {
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;

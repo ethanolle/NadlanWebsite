@@ -44,3 +44,65 @@ export const forOthers = [
   { value: "slate", label: "Slate", color: "#253858" },
   { value: "silver", label: "Silver", color: "#666666" },
 ];
+export const rooms = [
+  {
+    name: "1",
+    key: "1",
+    label: "1",
+  },
+  {
+    name: "1.5",
+    key: "1.5",
+    label: "1.5",
+  },
+  {
+    name: "2",
+    key: "2",
+    label: "2",
+  },
+  {
+    name: "2.5",
+    key: "2.5",
+    label: "2.5",
+  },
+  {
+    name: "4",
+    key: "4",
+    label: "4",
+  },
+  {
+    name: "4.5",
+    key: "4.5",
+    label: "4.5",
+  },
+  {
+    name: "5",
+    key: "5",
+    label: "5",
+  },
+  {
+    name: "5.5",
+    key: "5.5",
+    label: "5.5",
+  },
+  {
+    name: "6",
+    key: "6",
+    label: "6",
+  },
+  {
+    name: "6.5",
+    key: "6.5",
+    label: "6.5",
+  },
+  {
+    name: "7",
+    key: "7",
+    label: "7",
+  },
+  {
+    name: "יותר",
+    key: "יותר",
+    label: "יותר",
+  },
+];
