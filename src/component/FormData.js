@@ -134,3 +134,36 @@ export const size = [
     label: "120 ומעלה",
   },
 ];
+
+export const whatElse = [
+  {
+    name: "חניה",
+    key: "חניה",
+    label: "חניה",
+  },
+  {
+    name: "מעלית",
+    key: "מעלית",
+    label: "מעלית",
+  },
+  {
+    name: `ממ"ד`,
+    key: `ממ"ד`,
+    label: `ממ"ד`,
+  },
+  {
+    name: "מרפסת שמש",
+    key: "מרפסת שמש",
+    label: "מרפסת שמש",
+  },
+  {
+    name: "מחסן",
+    key: "מחסן",
+    label: "מחסן",
+  },
+  {
+    name: "משופצת",
+    key: "משופצת",
+    label: "משופצת",
+  },
+];

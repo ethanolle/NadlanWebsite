@@ -1,7 +1,13 @@
 import React from "react";
 import emailjs from "emailjs-com";
 import makeAnimated from "react-select/animated";
-import { ramatGanOption, givatayimOption, rooms, size } from "./FormData";
+import {
+  ramatGanOption,
+  givatayimOption,
+  rooms,
+  size,
+  whatElse,
+} from "./FormData";
 import Select, { components } from "react-select";
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
@@ -15,11 +21,13 @@ class Form extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleSizeCheckbox = this.handleSizeCheckbox.bind(this);
+    this.handleWhatElseCheckbox = this.handleWhatElseCheckbox.bind(this);
     this.state = {
       show: false,
       loading: false,
       checkedItems: new Map(),
       checkedSize: new Map(),
+      checkedWhatElse: new Map(),
       ramatGan: {
         value: ramatGanOption[0], // "One" as initial value for react-select
         ramatGanOption, // all available options
@@ -62,6 +70,7 @@ class Form extends React.Component {
       givatayim,
       checkedItems,
       checkedSize,
+      checkedWhatElse,
     } = this.state;
     let ramatGanList, givatayimList;
     if (ramatGan.value.constructor === Array) {
@@ -78,6 +87,10 @@ class Form extends React.Component {
       .filter(([key, value]) => value)
       .map(([key]) => key);
 
+    let checkedWhatElseValidation = Array.from(checkedWhatElse.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
+
     let templateParams = {
       phone: phone,
       name: name,
@@ -89,9 +102,11 @@ class Form extends React.Component {
       givatayimOption: givatayimList,
       checkedItems: checkedValidation,
       checkedSize: checkedSizeValidation,
+      checkedWhatElse: checkedWhatElseValidation,
     };
     console.log(checkedItems);
     console.log(checkedSize);
+    console.log(checkedWhatElse);
 
     //=======================
     // Use your own API key
@@ -175,6 +190,14 @@ class Form extends React.Component {
     const isChecked = e.target.checked;
     this.setState((prevState) => ({
       checkedSize: prevState.checkedSize.set(item, isChecked),
+    }));
+  }
+  handleWhatElseCheckbox(e) {
+    const item = e.target.name;
+    console.log("chenge");
+    const isChecked = e.target.checked;
+    this.setState((prevState) => ({
+      checkedWhatElse: prevState.checkedWhatElse.set(item, isChecked),
     }));
   }
 
@@ -267,60 +290,16 @@ class Form extends React.Component {
             <div className='ques4'>
               <h3 className='text-center '>מה עוד?</h3>
               <div className='row float-center d-flex justify-content-center'>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  חניה
-                </label>
-                <label className='col-lg-2 '>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מעלית
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  ממ"ד
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מרפסת שמש
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מחסן
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  משופצת
-                </label>
+                {whatElse.map((item) => (
+                  <label key={item.key} className='col-lg-2'>
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedWhatElse.get(item.name)}
+                      onChange={this.handleWhatElseCheckbox}
+                    />
+                    {item.name}
+                  </label>
+                ))}
               </div>
             </div>
             <div className='ques5 '>
