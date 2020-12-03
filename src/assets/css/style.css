@@ -497,7 +497,15 @@ h6 {
   display: block;
 }
 /*---------------------------------------------------- */
-.share {
+.contact_success_modal_body {
+  text-align: center;
+  background: #ffffff;
+  color: #fe8645;
+}
+.contact_success_modal_img {
+  height: 15vh;
+  padding-bottom: 3%;
+  border-radius: 15%;
 }
 .img-fluid {
   transition: all 0.2s ease-out;

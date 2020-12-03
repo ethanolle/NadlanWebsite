@@ -1,6 +1,7 @@
 import React from "react";
 import emailjs from "emailjs-com";
 import makeAnimated from "react-select/animated";
+import { Button, FormGroup, Modal, Image } from "react-bootstrap";
 import {
   ramatGanOption,
   givatayimOption,
@@ -131,14 +132,7 @@ class Form extends React.Component {
   }
 
   resetForm() {
-    this.setState({
-      phone: "",
-      sellHome: "",
-      message: "",
-      modal: false,
-      name: "",
-      whatElse: [],
-    });
+    window.location.reload(false);
   }
 
   handleRadioButton(value) {
@@ -194,7 +188,6 @@ class Form extends React.Component {
   }
   handleWhatElseCheckbox(e) {
     const item = e.target.name;
-    console.log("chenge");
     const isChecked = e.target.checked;
     this.setState((prevState) => ({
       checkedWhatElse: prevState.checkedWhatElse.set(item, isChecked),
@@ -340,6 +333,37 @@ class Form extends React.Component {
             שלח
           </button>
         </div>
+        <Modal
+          size='md'
+          aria-labelledby='contained-modal-title-vcenter'
+          show={this.state.show}
+          onHide={this.handleClose}
+          centered
+        >
+          <Modal.Body className='contact_success_modal_body'>
+            <Image
+              className='contact_success_modal_img'
+              src='https://icon-library.net/images/success-icon/success-icon-5.jpg'
+            />
+            <h5>
+              Thank you{" "}
+              <span>
+                <strong>{this.state.name}</strong>!!
+              </span>{" "}
+              😇
+            </h5>
+            <h6>Your message was successfully recorded</h6>
+            <br />
+            <Button
+              variant='outline-light'
+              size='lg'
+              onClick={this.handleClose}
+              className='contact-email-text-btn'
+            >
+              Close
+            </Button>
+          </Modal.Body>
+        </Modal>
       </form>
     );
   }
