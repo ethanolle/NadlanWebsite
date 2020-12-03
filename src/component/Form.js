@@ -1,7 +1,7 @@
 import React from "react";
 import emailjs from "emailjs-com";
 import makeAnimated from "react-select/animated";
-import { ramatGanOption, givatayimOption, rooms } from "./FormData";
+import { ramatGanOption, givatayimOption, rooms, size } from "./FormData";
 import Select, { components } from "react-select";
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
@@ -14,10 +14,12 @@ class Form extends React.Component {
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.handleSizeCheckbox = this.handleSizeCheckbox.bind(this);
     this.state = {
       show: false,
       loading: false,
       checkedItems: new Map(),
+      checkedSize: new Map(),
       ramatGan: {
         value: ramatGanOption[0], // "One" as initial value for react-select
         ramatGanOption, // all available options
@@ -59,6 +61,7 @@ class Form extends React.Component {
       ramatGan,
       givatayim,
       checkedItems,
+      checkedSize,
     } = this.state;
     let ramatGanList, givatayimList;
     if (ramatGan.value.constructor === Array) {
@@ -67,6 +70,14 @@ class Form extends React.Component {
     if (givatayim.value.constructor === Array) {
       givatayimList = givatayim.value.map(({ value }) => value);
     }
+    let checkedValidation = Array.from(checkedItems.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
+
+    let checkedSizeValidation = Array.from(checkedSize.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
+
     let templateParams = {
       phone: phone,
       name: name,
@@ -76,9 +87,11 @@ class Form extends React.Component {
       whatElse: whatElse,
       ramatGanOption: ramatGanList,
       givatayimOption: givatayimList,
-      checkedItems: checkedItems,
+      checkedItems: checkedValidation,
+      checkedSize: checkedSizeValidation,
     };
     console.log(checkedItems);
+    console.log(checkedSize);
 
     //=======================
     // Use your own API key
@@ -157,6 +170,13 @@ class Form extends React.Component {
       checkedItems: prevState.checkedItems.set(item, isChecked),
     }));
   }
+  handleSizeCheckbox(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState((prevState) => ({
+      checkedSize: prevState.checkedSize.set(item, isChecked),
+    }));
+  }
 
   render() {
     const { errors, ramatGan, givatayim } = this.state;
@@ -232,51 +252,16 @@ class Form extends React.Component {
             <div className='ques3'>
               <h3 className='text-center '>גודל הדירה ?</h3>
               <div className='row float-center d-flex justify-content-center'>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  עד 50 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  50 – 70 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  70 – 90 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  90 – 120 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  120 ומעלה
-                </label>
+                {size.map((item) => (
+                  <label key={item.key} className='col-lg-2'>
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedSize.get(item.name)}
+                      onChange={this.handleSizeCheckbox}
+                    />
+                    {item.name}
+                  </label>
+                ))}
               </div>
             </div>
             <div className='ques4'>
