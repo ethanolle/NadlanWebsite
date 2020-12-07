@@ -1,7 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import makeAnimated from "react-select/animated";
-import { Button, FormGroup, Modal, Image } from "react-bootstrap";
+import { Button, Modal, Image } from "react-bootstrap";
 import {
   ramatGanOption,
   givatayimOption,
@@ -9,7 +8,7 @@ import {
   size,
   whatElse,
 } from "./FormData";
-import Select, { components } from "react-select";
+import Select from "react-select";
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
   <input type={type} name={name} checked={checked} onChange={onChange} />
@@ -96,9 +95,8 @@ class Form extends React.Component {
       phone: phone,
       name: name,
       whatElse: whatElse,
-      to_name: "ethan.sayagh@gmail.com",
+      to_name: "Home@re-friendly.com",
       sellHome: sellHome,
-      whatElse: whatElse,
       ramatGanOption: ramatGanList,
       givatayimOption: givatayimList,
       checkedItems: checkedValidation,
@@ -195,7 +193,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const { errors, ramatGan, givatayim } = this.state;
+    const { ramatGan, givatayim } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className='form_class'>
         <div className='row'>

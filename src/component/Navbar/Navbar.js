@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Sticky from "react-stickynode";
-import { Link } from "react-scroll";
 
 class Navbar extends Component {
   render() {

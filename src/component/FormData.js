@@ -11,7 +11,7 @@ export const ramatGanOption = [
   { value: "רמת יצחק", label: "רמת יצחק", color: "#666666" },
   { value: "רמת עמידר", label: "רמת עמידר", color: "#00B8D9" },
   { value: "רמת שקמה", label: "רמת שקמה", color: "#0052CC" },
-  { value: "ש/יכון ותיקים", label: "ש/יכון ותיקים", color: "#5243AA" },
+  { value: "שיכון ותיקים", label: "שיכון ותיקים", color: "#5243AA" },
   { value: "שכונת הגפן", label: "שכונת הגפן", color: "#FF5630" },
   { value: "שכונת הלל", label: "שכונת הלל", color: "#FF8B00" },
   { value: "שכונת חרוזים", label: "שכונת חרוזים", color: "#FFC400" },

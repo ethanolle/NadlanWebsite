@@ -1,20 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Fade from "react-reveal/Fade";
-import { FaBeer } from "react-icons/fa";
-import { IconContext } from "react-icons";
 import facebookLogo from "./Facebook.png";
 import whatsappLogo from "./WhatsApp.png";
 
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  WhatsappIcon,
-  WhatsappShareButton,
-} from "react-share";
 class Footer extends Component {
   render() {
-    let jhonData = this.props.jhonData;
     return (
       <section className='footer-area'>
         <div className='container_footer'>
@@ -24,9 +13,9 @@ class Footer extends Component {
           </div>
           <div className='mw-3 share '>
             <img
+              alt='facebook button to page'
               src={facebookLogo}
               className='img-fluid'
-              alt='Responsive image'
               onClick={() =>
                 window.open(
                   "https://www.facebook.com/Friendly-%D7%AA%D7%99%D7%95%D7%95%D7%9A-%D7%95%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%A0%D7%93%D7%9C%D7%9F-110933907419959/?view_public_for=110933907419959"
@@ -34,9 +23,9 @@ class Footer extends Component {
               }
             />
             <img
+              alt='whatsapp button to send message'
               src={whatsappLogo}
               className='img-fluid'
-              alt='Responsive image'
               onClick={() => window.open("https://wa.me/+972506710373")}
             />
           </div>
