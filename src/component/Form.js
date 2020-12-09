@@ -1,8 +1,14 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import makeAnimated from "react-select/animated";
-import { ramatGanOption, givatayimOption, checkboxes } from "./FormData";
-import Select, { components } from "react-select";
+import { Button, Modal, Image } from "react-bootstrap";
+import {
+  ramatGanOption,
+  givatayimOption,
+  rooms,
+  size,
+  whatElse,
+} from "./FormData";
+import Select from "react-select";
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
   <input type={type} name={name} checked={checked} onChange={onChange} />
@@ -11,13 +17,18 @@ const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
 class Form extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.handleCheck = this.handleCheck.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.handleSizeCheckbox = this.handleSizeCheckbox.bind(this);
+    this.handleWhatElseCheckbox = this.handleWhatElseCheckbox.bind(this);
     this.state = {
       checkedItems: new Map(),
       show: false,
       loading: false,
+      checkedItems: new Map(),
+      checkedSize: new Map(),
+      checkedWhatElse: new Map(),
       ramatGan: {
         value: ramatGanOption[0], // "One" as initial value for react-select
         ramatGanOption, // all available options
@@ -49,7 +60,6 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ loading: true });
     const {
       phone,
       sellHome,
@@ -58,15 +68,27 @@ class Form extends React.Component {
       ramatGan,
       givatayim,
       checkedItems,
+      checkedSize,
+      checkedWhatElse,
     } = this.state;
     let ramatGanList, givatayimList;
     if (ramatGan.value.constructor === Array) {
       ramatGanList = ramatGan.value.map(({ value }) => value);
     }
-
     if (givatayim.value.constructor === Array) {
       givatayimList = givatayim.value.map(({ value }) => value);
     }
+    let checkedValidation = Array.from(checkedItems.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
+
+    let checkedSizeValidation = Array.from(checkedSize.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
+
+    let checkedWhatElseValidation = Array.from(checkedWhatElse.entries())
+      .filter(([key, value]) => value)
+      .map(([key]) => key);
 
     let templateParams = {
       phone: phone,
@@ -74,9 +96,11 @@ class Form extends React.Component {
       whatElse: whatElse,
       to_name: "ethan.sayagh@gmail.com",
       sellHome: sellHome,
-      whatElse: whatElse,
       ramatGanOption: ramatGanList,
       givatayimOption: givatayimList,
+      checkedItems: checkedValidation,
+      checkedSize: checkedSizeValidation,
+      checkedWhatElse: checkedWhatElseValidation,
     };
 
     //=======================
@@ -86,7 +110,7 @@ class Form extends React.Component {
     emailjs
       .send(
         "NadlanMail",
-        "NadlanTemplate",
+        "NadlanTemp",
         templateParams,
         "user_dpP7RSRMd857gadzuRAji"
       )
@@ -102,14 +126,7 @@ class Form extends React.Component {
   }
 
   resetForm() {
-    this.setState({
-      phone: "",
-      sellHome: "",
-      message: "",
-      modal: false,
-      name: "",
-      whatElse: [],
-    });
+    window.location.reload(false);
   }
 
   handleRadioButton(value) {
@@ -149,16 +166,30 @@ class Form extends React.Component {
   handleClick = () => {
     this.setValue(null); // here we reset value
   };
-  handleCheck(e) {
+  handleCheckbox(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
     this.setState((prevState) => ({
       checkedItems: prevState.checkedItems.set(item, isChecked),
     }));
   }
+  handleSizeCheckbox(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState((prevState) => ({
+      checkedSize: prevState.checkedSize.set(item, isChecked),
+    }));
+  }
+  handleWhatElseCheckbox(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState((prevState) => ({
+      checkedWhatElse: prevState.checkedWhatElse.set(item, isChecked),
+    }));
+  }
 
   render() {
-    const { errors, ramatGan, givatayim } = this.state;
+    const { ramatGan, givatayim } = this.state;
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className='form_class'>
         <div className='row'>
@@ -215,12 +246,12 @@ class Form extends React.Component {
             <div className='ques2 '>
               <h3 className='text-center'>כמה חדרים ?</h3>
               <div className=' row float-center d-flex justify-content-center '>
-                {checkboxes.map((item) => (
+                {rooms.map((item) => (
                   <label key={item.key} className='m-3'>
                     <Checkbox
                       name={item.name}
                       checked={this.state.checkedItems.get(item.name)}
-                      onChange={this.handleCheck}
+                      onChange={this.handleCheckbox}
                     />
                     {item.name}
                   </label>
@@ -231,110 +262,31 @@ class Form extends React.Component {
             <div className='ques3'>
               <h3 className='text-center '>גודל הדירה ?</h3>
               <div className='row float-center d-flex justify-content-center'>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  עד 50 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  50 – 70 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  70 – 90 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  90 – 120 מ"ר
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  120 ומעלה
-                </label>
+                {size.map((item) => (
+                  <label key={item.key} className='col-lg-2'>
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedSize.get(item.name)}
+                      onChange={this.handleSizeCheckbox}
+                    />
+                    {item.name}
+                  </label>
+                ))}
               </div>
             </div>
             <div className='ques4'>
               <h3 className='text-center '>מה עוד?</h3>
               <div className='row float-center d-flex justify-content-center'>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  חניה
-                </label>
-                <label className='col-lg-2 '>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מעלית
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  ממ"ד
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מרפסת שמש
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  מחסן
-                </label>
-                <label className='col-lg-2'>
-                  <input
-                    name='isGoing'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  משופצת
-                </label>
+                {whatElse.map((item) => (
+                  <label key={item.key} className='col-lg-2'>
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedWhatElse.get(item.name)}
+                      onChange={this.handleWhatElseCheckbox}
+                    />
+                    {item.name}
+                  </label>
+                ))}
               </div>
             </div>
             <div className='ques5 '>
@@ -375,6 +327,32 @@ class Form extends React.Component {
             שלח
           </button>
         </div>
+        <Modal
+          size='md'
+          aria-labelledby='contained-modal-title-vcenter'
+          show={this.state.show}
+          onHide={this.handleClose}
+          centered
+          className='modalBox'
+        >
+          <Modal.Body className='contact_success_modal_body modalBox'>
+            <Image
+              className='contact_success_modal_img'
+              src='https://icon-library.net/images/success-icon/success-icon-5.jpg'
+            />
+            <h1>בינגו !</h1>
+            <h3>נדאג לשלוח לכם נכסים שיענו על כל הצרכים !</h3>
+            <br />
+            <Button
+              size='lg'
+              onClick={this.handleClose}
+              className='contact-email-text-btn'
+              variant='warning'
+            >
+              סגור
+            </Button>
+          </Modal.Body>
+        </Modal>
       </form>
     );
   }

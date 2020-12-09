@@ -66,7 +66,7 @@ Table of Content:
   padding: 0px;
 }
 #logo_img {
-  width: 5%;
+  width: 5.5%;
 }
 
 a {
@@ -497,17 +497,7 @@ h6 {
   display: block;
 }
 /*---------------------------------------------------- */
-.img-fluid {
-  margin: 0px 2vh 0px 2vh;
-  max-width: 5%;
-  height: auto;
-  float: left;
-  display: inline-block;
-}
-.img-fluid:hover {
-  transition: all 0.2s ease-out;
-  max-width: 5.3%;
-}
+
 .address {
   display: inline-block;
   flex-wrap: nowrap;
@@ -515,13 +505,31 @@ h6 {
   font-style: italic;
   color: black;
   text-decoration: underline;
-  margin: 0px 1vh 0px 0px;
+  margin: 0px 3vw 0px 0px;
 }
 .address h4 {
-  font-size: 150%%;
+  font-size: 3vh;
 }
 .container_footer {
+  margin: 0px 2vh 0px 2vh;
   display: inline-block;
+  white-space: nowrap;
+}
+
+.img-fluid {
+  transition: all 0.2s ease-out;
+  max-width: 5%;
+  margin: 0px 2vh 0px 2vh;
+  height: auto;
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  filter: contrast(85%);
+}
+.img-fluid:hover {
+  transition: all 0.2s ease-out;
+  filter: contrast(100%);
 }
 
 /*----------------------------------------------------*/
@@ -565,7 +573,7 @@ h6 {
   height: 100%;
   top: 0;
   left: 0;
-  background: url("../../image/grid-70.png") no-repeat scroll center 0 / cover;
+
   z-index: 0;
 }
 .particle {
@@ -1492,6 +1500,27 @@ h6 {
   padding-top: 12px;
 }
 
+.modalBox {
+  border-radius: 10%;
+  border-color: aqua;
+}
+.contact_success_modal_body {
+  float: center;
+  text-align: center;
+  background: #ffffff;
+  color: #fe8645;
+  border-radius: 10%;
+}
+.contact_success_modal_img {
+  height: 15vh;
+  padding-bottom: 3%;
+  border-radius: 10%;
+}
+.contact-email-text-btn:hover {
+  background: #666666;
+  color: aliceblue;
+}
+
 .contact-area .input_form form .send_btn {
   font-size: 16px;
   border-radius: 4px;
@@ -1658,12 +1687,7 @@ h6 {
 .banner_shap {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 40% 100%, 0 80%);
 }
-.banner_shap_two:before {
-  background: url(../../image/shap1.png) no-repeat scroll center bottom;
-  height: 246px;
-  top: auto;
-  bottom: -1px;
-}
+
 /*======================= red_color css ==================*/
 .red_color .banner_content .social_icon li a,
 .red_color .portfolio .item-img-overlay .overlay-info .icons a:hover {
@@ -2410,7 +2434,6 @@ h6 {
   bottom: 13px;
   left: 0;
   z-index: -1;
-  background: url(../../image/shape.png) no-repeat scroll center bottom;
 }
 .error_text:after {
   content: "";
@@ -2420,7 +2443,6 @@ h6 {
   bottom: -7px;
   left: 0;
   z-index: -3;
-  background: url(../../image/dot.png) no-repeat scroll center bottom;
 }
 .error_text h1 {
   font-size: 250px;
