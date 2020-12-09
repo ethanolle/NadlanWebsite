@@ -9,7 +9,7 @@ class TypeBanner extends Component {
     return (
       <section id='home'>
         <Parallax
-          bgImage={require("../../image/Binian1.webp")}
+          bgImage={require("../../image/Binian1.png")}
           strength={0}
           className='banner_area'
         >

@@ -1,15 +1,21 @@
 import React from "react";
 import emailjs from "emailjs-com";
 import makeAnimated from "react-select/animated";
-import { ramatGanOption, givatayimOption } from "./FormData";
+import { ramatGanOption, givatayimOption, checkboxes } from "./FormData";
 import Select, { components } from "react-select";
+
+const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => (
+  <input type={type} name={name} checked={checked} onChange={onChange} />
+);
 
 class Form extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.handleCheck = this.handleCheck.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
+      checkedItems: new Map(),
       show: false,
       loading: false,
       ramatGan: {
@@ -44,10 +50,24 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ loading: true });
+    const {
+      phone,
+      sellHome,
+      whatElse,
+      name,
+      ramatGan,
+      givatayim,
+      checkedItems,
+    } = this.state;
+    let ramatGanList, givatayimList;
+    if (ramatGan.value.constructor === Array) {
+      ramatGanList = ramatGan.value.map(({ value }) => value);
+    }
 
-    const { phone, sellHome, whatElse, name, ramatGan, givatayim } = this.state;
-    let ramatGanList = ramatGan.value.map(({ value }) => value);
-    let givatayimList = givatayim.value.map(({ value }) => value);
+    if (givatayim.value.constructor === Array) {
+      givatayimList = givatayim.value.map(({ value }) => value);
+    }
+
     let templateParams = {
       phone: phone,
       name: name,
@@ -129,6 +149,13 @@ class Form extends React.Component {
   handleClick = () => {
     this.setValue(null); // here we reset value
   };
+  handleCheck(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState((prevState) => ({
+      checkedItems: prevState.checkedItems.set(item, isChecked),
+    }));
+  }
 
   render() {
     const { errors, ramatGan, givatayim } = this.state;
@@ -170,7 +197,6 @@ class Form extends React.Component {
                 hideSelectedOptions={true}
                 backspaceRemovesValue={true}
                 isMulti
-                value={ramatGan.value}
                 onChange={this.handleRamatGanChange}
                 options={ramatGan.ramatGanOption}
               />
@@ -181,7 +207,6 @@ class Form extends React.Component {
                 hideSelectedOptions={true}
                 backspaceRemovesValue={true}
                 isMulti
-                value={givatayim.value}
                 onChange={this.handleGivatayimChange}
                 options={givatayim.givatayimOption}
               />
@@ -190,132 +215,16 @@ class Form extends React.Component {
             <div className='ques2 '>
               <h3 className='text-center'>כמה חדרים ?</h3>
               <div className=' row float-center d-flex justify-content-center '>
-                <label className='m-3'>
-                  <input
-                    name='1'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  1
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='1.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  1.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='2'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  2
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='2.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  2.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='3'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  3
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='3.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  3.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='4'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  4
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='4.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  4.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='5.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  5.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='6'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  6
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='6.5'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  6.5
-                </label>
-                <label className=' m-3'>
-                  <input
-                    name='7'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  7
-                </label>
-                <label className=' m-3 '>
-                  <input
-                    name='יותר'
-                    type='checkbox'
-                    checked={this.state.isGoing}
-                    onChange={this.handleInputChange}
-                  />
-                  יותר
-                </label>
+                {checkboxes.map((item) => (
+                  <label key={item.key} className='m-3'>
+                    <Checkbox
+                      name={item.name}
+                      checked={this.state.checkedItems.get(item.name)}
+                      onChange={this.handleCheck}
+                    />
+                    {item.name}
+                  </label>
+                ))}
               </div>
             </div>
             <br />

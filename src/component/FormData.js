@@ -44,3 +44,36 @@ export const forOthers = [
   { value: "slate", label: "Slate", color: "#253858" },
   { value: "silver", label: "Silver", color: "#666666" },
 ];
+
+export const checkboxes = [
+  {
+    name: '1',
+    key: '1',
+    label: '1',
+  },
+  {
+    name: '1.5',
+    key: '1.5',
+    label: '1.5',
+  },
+  {
+    name: '2',
+    key: '2',
+    label: '2',
+  },
+  {
+    name: '2.5',
+    key: '2.5',
+    label: '2.5',
+  },
+  {
+    name: '3',
+    key: '3',
+    label: '3',
+  },
+  {
+    name: '3.5',
+    key: '3.5',
+    label: '3.5',
+  }
+];
